@@ -82,7 +82,21 @@ Operations include:
       - `after_insert_plane_class`: Trigger to ensure that at least one passenger class is assigned to a plane after new records are added.
 
 - **Views**:
-  - Views for generating reports on flights, crew schedules, etc.
+  - `employee_info`: 
+      - A view that combines employee data with their classification names, providing easy access to employee information.
+
+  - `flight_details`: 
+      - A view that consolidates flight information with associated route and plane details for streamlined queries regarding flights.
+
+  - `crew_assignments`: 
+      - A view that aggregates employee names assigned to each crew, allowing for a quick overview of crew compositions.
+
+  - `plane_classes`: 
+      - A view that displays planes along with their manufacturers and the classes they accommodate, enhancing the visibility of class              assignments.
+
+  - `airport_flight_info`: 
+      - A view that lists airport codes alongside the IDs of associated flights, facilitating tracking of flight operations for each                airport.
+
 
 - **Users and Roles**:
   - Roles for different levels of access (database, table, column) to manage security.
