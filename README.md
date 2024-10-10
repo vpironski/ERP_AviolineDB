@@ -70,7 +70,31 @@ Operations include:
   - Users assigned to roles based on their responsibilities.
 
 - **Indexes**:
-  - Indexes on commonly queried columns to improve query performance.
+  - `classification Table`:
+      - `idx_classification_name`: Index on the `name` column to optimize searches for classifications by name.
+  
+  - `employees Table`:
+      - `idx_employees_name`: Index on the `name` column to speed up searches for employees by name.
+      - `idx_employees_classification_id`: Index on the `classification_idclassification` column to enhance performance for queries involving classifications.
+
+  - `engines Table`:
+      - `idx_engines_manufacturer`: Index on the `manufacturer` column to improve engine searches by manufacturer.
+      - `idx_engines_fuelConsumtion`: Index on the `fuelConsumtion` column for better query performance on fuel consumption data.
+  
+  - `planes Table`:
+      - `idx_planes_manufacturer`: Index on the `manufacturer` column to accelerate searches for planes by manufacturer.
+      - `idx_planes_based`: Index on the based column to enhance searches by plane location or base.
+       
+  - `routes Table`:
+      - `idx_routes_startPoint`: Index on the `startPoint` column to improve performance in queries filtering routes by starting location.
+      - `idx_routes_finishPoint`: Index on the `finishPoint` column to optimize searches for routes by the destination.
+
+  - `flights Table`:
+      - `idx_flights_passengers`: Index on the `passengers` column to speed up queries filtering by the number of passengers.
+      - `idx_flights_weight`: Index on the `weight` column to enhance performance in searches filtering by flight weight.
+        
+  - `airports Table`:
+      - `idx_airports_code`: Index on the `code` column to optimize queries for airport searches by code.
 
 - **Transactions**:
   - Grouping queries related to flight booking, crew assignments, etc., into transactions to ensure data consistency.
