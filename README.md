@@ -127,7 +127,8 @@ Operations include:
   
   - `employees Table`:
       - `idx_employees_name`: Index on the `name` column to speed up searches for employees by name.
-      - `idx_employees_classification_id`: Index on the `classification_idclassification` column to enhance performance for queries involving classifications.
+      - `idx_employees_classification_id`: Index on the `classification_idclassification` column to enhance performance for queries       
+      involving classifications.
 
   - `engines Table`:
       - `idx_engines_manufacturer`: Index on the `manufacturer` column to improve engine searches by manufacturer.
@@ -149,8 +150,19 @@ Operations include:
       - `idx_airports_code`: Index on the `code` column to optimize queries for airport searches by code.
 
 - **Transactions**:
-  - Grouping queries related to flight booking, crew assignments, etc., into transactions to ensure data consistency.
+  - **Assign Crew to Flight**:
+      - Updates the `crew_idcrew` for the flight with `idFlights` equal to 2, assigning a crew member to that flight.
+
+  - **Insert New Routes**:
+      - Inserts five new route entries into the `routes` table, specifying the start point, finish point, start hour, finish hour, and            length for each route.
+
+  - **Insert New Employee**:
+      - Adds a new employee to the `employees` table, including the employee's name, address, age, gender, and classification.
+
+  - **Update Plane Details**:
+      - Updates the details of a specific plane in the `planes` table, changing the manufacturer, max speed, and fuel capacity for the            plane with `idplanes` equal to 1.
+
 
 ## Setup
 
-- SQL scripts for creating tables, triggers, views, users/roles, indexes, and transactions should be stored in a version-controlled repository for easy access and collaboration among team members.
+- SQL scripts for creating tables, triggers, views, users/roles, indexes, transactions and to populate tables.
