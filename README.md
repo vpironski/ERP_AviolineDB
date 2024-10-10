@@ -60,7 +60,26 @@ Operations include:
   - `Flights`
 
 - **Triggers**:
-  - Insert and update triggers to maintain data integrity and enforce business rules.
+  - `employees Table`:
+      - `before_insert_employee`: Trigger to automatically add a timestamp and message to the `info` column when a new employee record is         inserted.
+      - `after_update_employee`: Trigger to log updates made to employee records in an audit table for tracking purposes.
+  
+  - `routes Table`:
+      - `before_insert_route`: Trigger to ensure `startHour` is before `finishHour` when a new route is inserted. Raises an error if the          validation fails.
+  
+  - `flights Table`:
+      - `after_insert_flight`: Trigger to increment the `flownWith` field in the `planes` table for each newly created flight.
+      - `before_insert_flight`: Trigger to ensure that the total weight of a flight does not exceed the maximum weight capacity of the            assigned plane. Raises an error if the validation fails.
+  
+  - `crew Table`:
+      - `after_assign_employee_to_crew`: Trigger to log the assignment of employees to crews in the `crew_audit` table.
+
+  - `airports Table`:
+      - `before_insert_airport`: Trigger to validate that the `runwayLenght` is at least 1000 meters before inserting a new airport record.       Raises an error if the validation fails.
+      - `before_update_airport`: Trigger to ensure that the `runwayLenght` remains valid (at least 1000 meters) during updates. Raises an         error if the validation fails.
+
+  - `planes_has_classes Table`:
+      - `after_insert_plane_class`: Trigger to ensure that at least one passenger class is assigned to a plane after new records are added.
 
 - **Views**:
   - Views for generating reports on flights, crew schedules, etc.
