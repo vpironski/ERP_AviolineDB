@@ -99,8 +99,27 @@ Operations include:
 
 
 - **Users and Roles**:
-  - Roles for different levels of access (database, table, column) to manage security.
-  - Users assigned to roles based on their responsibilities.
+  - **Roles**:
+    - `Admin`: Full access to all database operations and tables in the `erp_avioline` database.
+    - `Manager`: Read and write access to all tables, excluding the ability to drop tables or create users.
+    - `Employee`: Read-only access to specific tables such as `employees` and `Flights`.
+
+  - **Users**:
+    - `admin_user`:
+      - **Host**: `localhost`
+      - **Assigned Role**: Admin
+      - **Password**: `StrongPassword1!`
+    
+    - `manager_user`:
+      - **Host**: `localhost`
+      - **Assigned Role**: Manager
+      - **Password**: `StrongPassword2!`
+    
+    - `employee_user`:
+      - **Host**: `localhost`
+      - **Assigned Role**: Employee
+      - **Password**: `StrongPassword3!`
+
 
 - **Indexes**:
   - `classification Table`:
